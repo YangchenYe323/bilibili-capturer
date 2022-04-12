@@ -71,7 +71,9 @@ const run = async() => {
 	console.log(follower)
 	// 摆烂操作
 	// fail the job to let github send email
-	throw new Error(`follower reaches ${follower}`);
+	if (Math.abs(follower - target) < 20) {
+		throw new Error(`follower reaches ${follower}`);
+	}
 	// if (true || Math.abs(follower - target) < 20) {
 	// 	await send_notification(follower)
 	// }

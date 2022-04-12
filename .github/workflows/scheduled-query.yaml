@@ -1,5 +1,5 @@
 #.github/worklows/scheduled-query.yaml
-name: Scheduled Query
+name: Scheduled Query.
 on:
   schedule:
     # runs every minutes

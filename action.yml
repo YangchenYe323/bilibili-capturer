@@ -1,9 +1,6 @@
 name: 'Query Bilibi User Info'
 description: ''
-inputs:
-  mid:
-    description: ''
-    required: true
+
 runs:
   using: 'node16'
   main: 'dist/index.js'

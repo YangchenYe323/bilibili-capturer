@@ -14,6 +14,15 @@ inputs:
   target:
     description: 'Target follower number'
     required: true
+  user_email:
+    description: 'email for sending notification'
+    required: true
+  user_pass:
+    description: 'password of the sender email'
+    required: true
+  receiver_email:
+    description: 'email to receive notification'
+    required: true
 
 runs:
   using: 'node16'

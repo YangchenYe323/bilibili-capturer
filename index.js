@@ -57,9 +57,9 @@ const send_notification = async (follower) => {
 const run = async() => {
 	let follower = await fetch_follower()
 	console.log(follower)
-	if (true || Math.abs(follower - target) < 20) {
-		await send_notification(follower)
-	}
+	// if (true || Math.abs(follower - target) < 20) {
+	// 	await send_notification(follower)
+	// }
 }
 
 run()

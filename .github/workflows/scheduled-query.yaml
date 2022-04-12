@@ -3,7 +3,7 @@ name: Scheduled Query
 on:
   schedule:
     # runs every minutes
-    -cron: '*/1 * * * *'
+    - cron: '*/1 * * * *'
 
 jobs:
   query:

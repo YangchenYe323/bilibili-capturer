@@ -1,7 +1,6 @@
 #.github/worklows/scheduled-query.yaml
 name: 'Scheduled Query.'
 on:
-  push:
   schedule:
     # runs every minutes
     - cron: '*/1 * * * *'

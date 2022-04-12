@@ -12,3 +12,8 @@ jobs:
     steps:
       - name: Query
         uses: YangchenYe323/bilibili-capturer@master
+        with:
+          mid: ${{ secrets.MID }}
+          page_url: ${{ secrets.PAGE_URL }}
+          api_url: ${{ secrets.API_URL }}
+          target: ${{ secrets.TARGET }}

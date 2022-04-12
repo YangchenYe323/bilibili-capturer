@@ -1,6 +1,20 @@
 name: 'Query Bilibi User Info'
 description: ''
 
+inputs:
+  mid:
+    description: 'mid of the user to monitor'
+    required: true
+  page_url:
+    description: 'url for getting personal page'
+    required: true
+  api_url:
+    description: 'url for querying info'
+    required: true
+  target:
+    description: 'Target follower number'
+    required: true
+
 runs:
   using: 'node16'
   main: 'dist/index.js'

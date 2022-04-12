@@ -1,14 +1,15 @@
 #.github/worklows/scheduled-query.yaml
-name: Scheduled Query.
+name: 'Scheduled Query.'
 on:
+  push:
   schedule:
     # runs every minutes
     - cron: '*/1 * * * *'
 
 jobs:
   query:
-    name: Query User Info
+    name: 'Query User Info'
     runs-on: macos-latest
     steps:
       - name: Query
-        uses: link-/bilibili-capturer@main
+        uses: YangchenYe323/bilibili-capturer@master

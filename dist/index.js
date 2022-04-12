@@ -10304,6 +10304,7 @@ module.exports = LeWindows;
 /***/ 2255:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
+var __webpack_unused_export__;
 
 
 const Mailer = __nccwpck_require__(9586);
@@ -10323,7 +10324,7 @@ const ETHEREAL_CACHE = ['true', 'yes', 'y', '1'].includes((process.env.ETHEREAL_
 
 let testAccount = false;
 
-module.exports.createTransport = function (transporter, defaults) {
+__webpack_unused_export__ = function (transporter, defaults) {
     let urlConfig;
     let options;
     let mailer;
@@ -10361,7 +10362,7 @@ module.exports.createTransport = function (transporter, defaults) {
     return mailer;
 };
 
-module.exports.createTestAccount = function (apiUrl, callback) {
+__webpack_unused_export__ = function (apiUrl, callback) {
     let promise;
 
     if (!callback && typeof apiUrl === 'function') {
@@ -10429,7 +10430,7 @@ module.exports.createTestAccount = function (apiUrl, callback) {
     return promise;
 };
 
-module.exports.getTestMessageUrl = function (info) {
+__webpack_unused_export__ = function (info) {
     if (!info || !info.response) {
         return false;
     }
@@ -18453,7 +18454,7 @@ const send_notification = async (follower) => {
 
 	//!: this might NOT work for any gmail account due to security issues
 	//!: see https://support.google.com/accounts/answer/6010255?hl=en
-	let transporter = nodemailer__WEBPACK_IMPORTED_MODULE_2__.createTransport({
+	let transporter = nodemailer.createTransport({
 		service: 'gmail',
 		auth: {
 		  user: user_email,
@@ -18481,9 +18482,9 @@ const send_notification = async (follower) => {
 const run = async() => {
 	let follower = await fetch_follower()
 	console.log(follower)
-	if (true) {
-		await send_notification(follower)
-	}
+	// if (true || Math.abs(follower - target) < 20) {
+	// 	await send_notification(follower)
+	// }
 }
 
 run()

@@ -26,10 +26,11 @@ const fetch_follower = async () => {
 
 const send_notification = async (follower) => {
 
-	//!: this might NOT work for any gmail account due to security issues
-	//!: see https://support.google.com/accounts/answer/6010255?hl=en
+	//! hotmail service is hard-coded for now, to enable
+	//! your own outlook email, see 
+	//! https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission
 	let transporter = nodemailer.createTransport({
-		service: 'gmail',
+		service: "hotmail",
 		auth: {
 		  user: user_email,
 		  pass: user_pass,
@@ -56,9 +57,9 @@ const send_notification = async (follower) => {
 const run = async() => {
 	let follower = await fetch_follower()
 	console.log(follower)
-	// if (true || Math.abs(follower - target) < 20) {
-	// 	await send_notification(follower)
-	// }
+	if (true || Math.abs(follower - target) < 20) {
+		await send_notification(follower)
+	}
 }
 
 run()

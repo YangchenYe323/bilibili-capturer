@@ -10304,7 +10304,6 @@ module.exports = LeWindows;
 /***/ 2255:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var __webpack_unused_export__;
 
 
 const Mailer = __nccwpck_require__(9586);
@@ -10324,7 +10323,7 @@ const ETHEREAL_CACHE = ['true', 'yes', 'y', '1'].includes((process.env.ETHEREAL_
 
 let testAccount = false;
 
-__webpack_unused_export__ = function (transporter, defaults) {
+module.exports.createTransport = function (transporter, defaults) {
     let urlConfig;
     let options;
     let mailer;
@@ -10362,7 +10361,7 @@ __webpack_unused_export__ = function (transporter, defaults) {
     return mailer;
 };
 
-__webpack_unused_export__ = function (apiUrl, callback) {
+module.exports.createTestAccount = function (apiUrl, callback) {
     let promise;
 
     if (!callback && typeof apiUrl === 'function') {
@@ -10430,7 +10429,7 @@ __webpack_unused_export__ = function (apiUrl, callback) {
     return promise;
 };
 
-__webpack_unused_export__ = function (info) {
+module.exports.getTestMessageUrl = function (info) {
     if (!info || !info.response) {
         return false;
     }
@@ -18452,10 +18451,11 @@ const fetch_follower = async () => {
 
 const send_notification = async (follower) => {
 
-	//!: this might NOT work for any gmail account due to security issues
-	//!: see https://support.google.com/accounts/answer/6010255?hl=en
-	let transporter = nodemailer.createTransport({
-		service: 'gmail',
+	//! hotmail service is hard-coded for now, to enable
+	//! your own outlook email, see 
+	//! https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission
+	let transporter = nodemailer__WEBPACK_IMPORTED_MODULE_2__.createTransport({
+		service: "hotmail",
 		auth: {
 		  user: user_email,
 		  pass: user_pass,
@@ -18482,9 +18482,9 @@ const send_notification = async (follower) => {
 const run = async() => {
 	let follower = await fetch_follower()
 	console.log(follower)
-	// if (true || Math.abs(follower - target) < 20) {
-	// 	await send_notification(follower)
-	// }
+	if (true) {
+		await send_notification(follower)
+	}
 }
 
 run()

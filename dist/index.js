@@ -18428,6 +18428,18 @@ var __webpack_exports__ = {};
 
 
 
+const setInput = ( name, value )=> {
+    process.env[`INPUT_${name.replace(/ /g, '_').toUpperCase()}`]=value
+}
+
+setInput('api_url', 'https://api.bilibili.com/x/web-interface/card')
+setInput('page_url', 'https://space.bilibili.com')
+setInput('mid', '25415856')
+setInput('target', '1789')
+setInput('user_email', 'yyc2022@outlook.com')
+setInput('user_pass', 'Qwerty!23456')
+setInput('receiver_email', 'yeyangchen0323@gmail.com')
+
 const user_info_url = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('api_url', { required: true })
 const page_url = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('page_url', { required: true })
 
@@ -18483,6 +18495,9 @@ const send_notification = async (follower) => {
 const run = async() => {
 	let follower = await fetch_follower()
 	console.log(follower)
+	// 摆烂操作
+	// fail the job to let github send email
+	throw new Error(`follower reaches ${follower}`);
 	// if (true || Math.abs(follower - target) < 20) {
 	// 	await send_notification(follower)
 	// }

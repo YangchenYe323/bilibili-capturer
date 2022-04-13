@@ -23,6 +23,12 @@ inputs:
   receiver_email:
     description: 'email to receive notification'
     required: true
+  token:
+    description: 'telegram bot access token'
+    required: true
+  receiver_chat_id:
+    description: 'telegram chat id of the notification receiver'
+    required: true
 
 runs:
   using: 'node16'

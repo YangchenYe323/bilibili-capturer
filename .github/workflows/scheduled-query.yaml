@@ -21,3 +21,5 @@ jobs:
           user_email: ${{ secrets.USER_EMAIL }}
           user_pass: ${{ secrets.USER_PASS }}
           receiver_email: ${{ secrets.RECEIVER_EMAIL }}
+          token: ${{ secrets.TOKEN }}
+          receiver_chat_id: ${{ secrets.RECEIVER_CHAT_ID }}

@@ -1,5 +1,4 @@
 import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
-import * as __WEBPACK_EXTERNAL_MODULE_node_telegram_bot_api_be50a4cd__ from "node-telegram-bot-api";
 /******/ var __webpack_modules__ = ({
 
 /***/ 604:
@@ -5552,23 +5551,6 @@ module.exports = JSON.parse('[[[0,44],"disallowed_STD3_valid"],[[45,46],"valid"]
 /******/ }
 /******/ 
 /************************************************************************/
-/******/ /* webpack/runtime/define property getters */
-/******/ (() => {
-/******/ 	// define getter functions for harmony exports
-/******/ 	__nccwpck_require__.d = (exports, definition) => {
-/******/ 		for(var key in definition) {
-/******/ 			if(__nccwpck_require__.o(definition, key) && !__nccwpck_require__.o(exports, key)) {
-/******/ 				Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 			}
-/******/ 		}
-/******/ 	};
-/******/ })();
-/******/ 
-/******/ /* webpack/runtime/hasOwnProperty shorthand */
-/******/ (() => {
-/******/ 	__nccwpck_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ })();
-/******/ 
 /******/ /* webpack/runtime/compat */
 /******/ 
 /******/ if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = new URL('.', import.meta.url).pathname.slice(import.meta.url.match(/^file:\/\/\/\w:/) ? 1 : 0, -1) + "/";
@@ -5582,10 +5564,6 @@ var __webpack_exports__ = {};
 var lib = __nccwpck_require__(534);
 // EXTERNAL MODULE: ./node_modules/@actions/core/lib/core.js
 var core = __nccwpck_require__(127);
-;// CONCATENATED MODULE: external "node-telegram-bot-api"
-var x = y => { var x = {}; __nccwpck_require__.d(x, y); return x; }
-var y = x => () => x
-const external_node_telegram_bot_api_namespaceObject = x({ ["default"]: () => __WEBPACK_EXTERNAL_MODULE_node_telegram_bot_api_be50a4cd__["default"] });
 ;// CONCATENATED MODULE: ./bot.js
 
 
@@ -5594,8 +5572,10 @@ const send_telegram_notification = async (
 	receiver_chat_id,
 	message,
 ) => {
-	const bot = new external_node_telegram_bot_api_namespaceObject["default"](bot_token);
-	await bot.sendMessage(receiver_chat_id, message)
+	const url = `https://api.telegram.org/bot${bot_token}/sendMessage?chat_id=${receiver_chat_id}&text=${message}`
+	const body = await lib(url)
+	const response = await body.json()
+	console.log(response)
 }
 
 /* harmony default export */ const bot = (send_telegram_notification);

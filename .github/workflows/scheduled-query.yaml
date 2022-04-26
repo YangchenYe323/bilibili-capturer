@@ -2,9 +2,9 @@
 name: 'Scheduled Query.'
 on:
   push:
-  schedule:
-    # runs every minutes
-    - cron: '*/1 * * * *'
+  # schedule:
+  #   # runs every minutes
+  #   - cron: '*/1 * * * *'
 
 jobs:
   query:
